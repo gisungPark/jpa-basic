@@ -11,7 +11,7 @@
 
    공통 부분을 부모 테이블로 만들고 자식 테이블이 부모 테이블의 기본 키를 받아서 조인하는 전략이다.
 
-   ![image-20210607230255941](C:\Users\gisung\AppData\Roaming\Typora\typora-user-images\image-20210607230255941.png)
+   ![image](https://user-images.githubusercontent.com/60100901/121033903-8c4a8980-c7e7-11eb-9760-e98e35be094f.png)
 
    | 장점                                  | 단점                               |
    | ------------------------------------- | ---------------------------------- |
@@ -25,7 +25,7 @@
 
    하나의 테이블 안에 전체를 넣고, 구분 컬럼(DTYPE)으로 구분한다.
 
-   ![image-20210607230743790](C:\Users\gisung\AppData\Roaming\Typora\typora-user-images\image-20210607230743790.png)
+   ![image](https://user-images.githubusercontent.com/60100901/121033928-8fde1080-c7e7-11eb-8dc8-069d55ffb5d8.png)
 
    | 장점                                | 단점                                                   |
    | ----------------------------------- | ------------------------------------------------------ |
@@ -42,6 +42,6 @@
    | 서브 타입을 명확하게 구분해서 처리할 때 효과적 | 여러 자식 테이블을 함께 조회할 때 성능이 느림(UNION SQL 필요) |
    | NOT NULL 제약조건 사용 가능                    | 자식 테이블을 통해서 쿼리하기 어려움                         |
 
-   ![image-20210607231409810](C:\Users\gisung\AppData\Roaming\Typora\typora-user-images\image-20210607231409810.png)
+   ![image](https://user-images.githubusercontent.com/60100901/121033950-94a2c480-c7e7-11eb-966f-35d1a5275579.png)
 
 ​		
