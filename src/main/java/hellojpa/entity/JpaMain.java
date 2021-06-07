@@ -1,6 +1,6 @@
 package hellojpa.entity;
 
-import hellojpa.entity.ch6고급맵핑.Movie;
+import hellojpa.entity.ch7고급매핑.Movie;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

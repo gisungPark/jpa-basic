@@ -1,4 +1,4 @@
-package hellojpa.entity.ch6고급맵핑;
+package hellojpa.entity.ch7고급매핑;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
