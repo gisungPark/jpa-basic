@@ -18,8 +18,6 @@ public class JpaMain {
             Movie movie = new Movie();
             movie.setActor("박기성");
             movie.setDirector("감독");
-            movie.setName("바람과 함께 사라지다");
-            movie.setPrice("2000");
 
             em.persist(movie);
 

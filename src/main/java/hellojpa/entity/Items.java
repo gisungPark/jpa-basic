@@ -7,11 +7,14 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter @Setter
 @NoArgsConstructor
-public class Item {
+public class Items {
 
     @Id @GeneratedValue
     private Long id;
@@ -19,5 +22,7 @@ public class Item {
     private int price;
     private int stackQuantity;
 
+    @ManyToMany(mappedBy = "items")
+    private List<Category> categorys = new ArrayList<>();
 
 }
