@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -18,6 +20,12 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "member_id")
     private Member member;
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> items = new ArrayList<>();
+    @OneToOne
+    private Delivery delivery;
+
     private LocalDate date;
     private OrderStatus status;
 }

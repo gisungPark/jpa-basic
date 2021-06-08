@@ -7,22 +7,16 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter @Setter
 @NoArgsConstructor
-public class Delivery {
+public class Category {
 
     @Id @GeneratedValue
-    private long id;
-
-    @OneToOne(mappedBy = "delivery")
-    private Order order;
-
-
-    private String city;
-    private String zipcode;
-    private DeliveryStatus status;
-
+    private Long id;
+    private String name;
 }
