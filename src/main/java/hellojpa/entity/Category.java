@@ -1,5 +1,6 @@
 package hellojpa.entity;
 
+import hellojpa.entity.ch7고급매핑.BaseEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,7 +12,7 @@ import java.util.List;
 @Entity
 @Getter @Setter
 @NoArgsConstructor
-public class Category {
+public class Category extends BaseEntity {
 
     @Id @GeneratedValue
     private Long id;
@@ -28,7 +29,7 @@ public class Category {
     @JoinTable(name = "category_item",
             joinColumns = @JoinColumn(name = "category_id"),
             inverseJoinColumns = @JoinColumn(name = "item_id"))
-    private List<Items> items = new ArrayList<>();
+    private List<Item> items = new ArrayList<>();
 
 
 }

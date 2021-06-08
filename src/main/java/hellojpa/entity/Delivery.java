@@ -1,5 +1,6 @@
 package hellojpa.entity;
 
+import hellojpa.entity.ch7고급매핑.BaseEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,7 +13,7 @@ import javax.persistence.OneToOne;
 @Entity
 @Getter @Setter
 @NoArgsConstructor
-public class Delivery {
+public class Delivery extends BaseEntity {
 
     @Id @GeneratedValue
     private long id;

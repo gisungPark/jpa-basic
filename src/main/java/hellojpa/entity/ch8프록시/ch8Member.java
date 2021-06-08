@@ -1,4 +1,4 @@
-package hellojpa.entity.ch7고급매핑;
+package hellojpa.entity.ch8프록시;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,15 +7,15 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
+@Setter @Getter
 @NoArgsConstructor
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@DiscriminatorColumn
-public abstract class Item {
+public class ch8Member {
 
     @Id @GeneratedValue
     private Long id;
     private String name;
-    private String price;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id")
+    private ch8Team team;
 }
