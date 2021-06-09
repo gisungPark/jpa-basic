@@ -1,8 +1,7 @@
 package hellojpa.entity;
 
-import hellojpa.entity.ch7고급매핑.Movie;
-import hellojpa.entity.ch8프록시.ch8Member;
-import hellojpa.entity.ch8프록시.ch8Team;
+import hellojpa.entity.ch8프록시.Child;
+import hellojpa.entity.ch8프록시.Parent;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -17,24 +16,17 @@ public class JpaMain {
         tx.begin();
 
         try {
-            ch8Team team = new ch8Team();
-            team.setName("파랑팀");
-            em.persist(team);
 
-            ch8Member member = new ch8Member();
-            member.setName("박기성");
-            member.setTeam(team);
-            em.persist(member);
+            Child child1 = new Child();
+            Child child2 = new Child();
 
-            em.flush();
-            em.clear();
+            Parent parent = new Parent();
 
-            ch8Member findMember = em.find(ch8Member.class, member.getId());
-            System.out.println(findMember.getName());
-            System.out.println(findMember.getTeam().getClass());
-            System.out.println("====================");
-            System.out.println(findMember.getTeam().getName());
-            System.out.println("===================");
+            parent.getChildren().add(child1);
+            parent.getChildren().add(child2);
+
+            em.persist(parent);
+
 
 
             tx.commit();
