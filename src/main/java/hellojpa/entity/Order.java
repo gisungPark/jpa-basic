@@ -10,6 +10,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.persistence.FetchType.LAZY;
+
 @Entity
 @Getter @Setter
 @NoArgsConstructor
@@ -18,13 +20,13 @@ public class Order extends BaseEntity {
 
     @Id @GeneratedValue
     private Long id;
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
-    @OneToOne
+    @OneToOne(fetch = LAZY)
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
