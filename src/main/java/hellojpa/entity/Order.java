@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.LAZY;
 
 @Entity
@@ -24,9 +25,10 @@ public class Order extends BaseEntity {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
-    @OneToOne(fetch = LAZY)
+
+    @OneToOne(fetch = LAZY, cascade = ALL)
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
