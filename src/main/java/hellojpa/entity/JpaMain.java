@@ -2,11 +2,14 @@ package hellojpa.entity;
 
 import hellojpa.entity.ch8프록시.Child;
 import hellojpa.entity.ch8프록시.Parent;
+import hellojpa.entity.ch9값타입.Address;
+import hellojpa.entity.ch9값타입.Period;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class JpaMain {
@@ -18,25 +21,20 @@ public class JpaMain {
 
         try {
 
-            Child child1 = new Child();
-            child1.setName("아들");
-            Child child2 = new Child();
-            child2.setName("딸");
+            Address homeAddress = new Address("city", "street", "zipcode");
 
-            Parent parent = new Parent();
-            parent.setName("아버지");
+            Member member = new Member();
+            member.setName("박00");
+            member.setHomeAddress(homeAddress);
 
-            parent.addChild(child1);
-            parent.addChild(child2);
+            member.getFavoriteFoods().add("족발");
+            member.getFavoriteFoods().add("피자");
+            member.getFavoriteFoods().add("치킨");
 
-            em.persist(parent);
-            em.flush();
-            em.clear();
+            member.getAddressHistory().add(new Address("old1", "street", "zipcode"));
+            member.getAddressHistory().add(new Address("old2", "street", "zipcode"));
 
-            System.out.println("=========================");
-
-            Parent findParent = em.find(Parent.class, parent.getId());
-            em.remove(findParent);
+            em.persist(member);
 
 
             tx.commit();
